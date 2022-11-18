@@ -301,6 +301,7 @@ if  (!empty($lastchanged_tokened) &&
             </form>
         </span>
     </div>
+    
     <?php
 
     if ($language === 'deutsch') {
