@@ -1,0 +1,39 @@
+/* CSS by Sascha Riess root-art_cms */
+
+/* Body setup */
+
+body {
+ background-color: white;
+ margin: 5px;
+ min-width: 600px;
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 12px;
+}
+/* Links */
+a:link {
+ color: #2980b9;
+ text-decoration: none;
+}
+a:visited {
+ color: #2980b9;
+ text-decoration: none;
+}
+a:hover {
+ color: #2980b9;
+ text-decoration: underline;
+}
+a:active {
+ color: #2980b9;
+ text-decoration: none;
+}
+hr {
+ background-color: #00649C;    /* Mozilla 1.4 */
+ color: #00649C;     /* IE 6 */
+ border: #00649C;    /* Opera 7.11 */
+ height: 2px;        /* in Opera für die Anzeige nötig, in Mozilla für die einheitliche Höhe */
+}
+.flags {
+  width: auto;
+  height: 0.6em;
+  border: 1px solid #00649C;
+}
