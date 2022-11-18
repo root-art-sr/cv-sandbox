@@ -87,11 +87,12 @@ if ((!in_array("$target", $canonical_deutsch)) && (!in_array("$target", $canonic
  */
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
-    $queryToken = "SELECT content_deutsch, content_english, deutsch, english FROM motivation_content WHERE token = '" . $token . "'";
+    $queryToken = "SELECT content_deutsch, content_english, deutsch, english, lastchanged FROM motivation_content WHERE token = '" . $token . "'";
     $resultToken = mysqli_query($connection, $queryToken);
     foreach ($resultToken as $rToken) {
     $content_deutsch_tokened = $rToken['content_deutsch'];
     $content_english_tokened = $rToken['content_english'];
+    $lastchanged_tokened = $rToken['lastchanged'];
     }
 } else {
     $token = '0efa745f21eb127178899a6343a29242';
@@ -153,8 +154,16 @@ if (in_array($target, $canonical_english)) {
 }
 
 // Actual date
-$lastchanged_en = date("m/d/Y h:i:s A",strtotime($lastchanged));
-$lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));
+if  (!empty($lastchanged_tokened) &&
+        $token != '0efa745f21eb127178899a6343a29242' &&
+        ($target == 'motivation' || $target == 'motivation')
+    )
+    {
+    $lastchanged_en = date("m/d/Y h:i:s A",strtotime($lastchanged_tokened));
+    $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged_tokened));
+} else {
+    $lastchanged_en = date("m/d/Y h:i:s A",strtotime($lastchanged));
+    $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));}
 
 ?>
 
@@ -170,7 +179,7 @@ $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));
 <meta name="description" content="Sascha Riess: <?= $target_title ?>" />
 <meta name="keywords" content="Sascha Riess: <?= $target_title ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.png" type="image/png" />
 <link href="//fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet" type="text/css" />
 <link rel="canonical" href="//<?= $host ?>/<?= $target ?>/<?= $language ?>/<?= $token ?>" />
 <link rel="stylesheet/less" type="text/css" href="/less/main.less" />
@@ -179,7 +188,7 @@ $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));
 </head>
 <body>
     <div class="language">
-        <a href="/<?= $page_english ?>/english/<?= $token ?>" title="Switch to English version"><img src="/ra_data/images/Flag_of_the_United_Kingdom.svg" alt="Language: English" class="flags" /></a><span class="switch"> &#9668; sandbox &#9658; </span><a href="/<?= $page_deutsch ?>/deutsch/<?= $token ?>" title="Wechsel zur deutschen Version"><img src="/ra_data/images/Flag_of_Germany.svg" alt="Sprache: Deutsch" class="flags" /></a>
+        <a href="/<?= $page_english ?>/english/<?= $token ?>" title="Switch to English version"><img src="/ra_data/images/Flag_of_the_United_Kingdom.svg" alt="Language: English" class="flags" /></a><span class="switch"> &#9668; &#9658; </span><a href="/<?= $page_deutsch ?>/deutsch/<?= $token ?>" title="Wechsel zur deutschen Version"><img src="/ra_data/images/Flag_of_Germany.svg" alt="Sprache: Deutsch" class="flags" /></a>
     </div>
     <div class="navbox">
         <ul class='topnav'>
@@ -188,7 +197,7 @@ $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));
 
         for ($i = 0; $i < $rowslinks; $i++) {
             
-            if ($token != '9a7ed6771e4cc30ac79c7f93b180fda7') { // Nicht TASys
+            if ($token != '9a7ed6771e4cc30ac79c7f93b180fda7' && $token != '4f39b4cf3f06a4536108c6e30eadbddf') { // Nicht TASys
             
                 if ($canonical_deutsch[$i] != 'anleitung' && $canonical_english[$i] != 'manual') { // No manual
 
@@ -246,9 +255,11 @@ $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));
         // ToDo language default and catch
         if ($language === 'deutsch' && $target === 'motivation') {
             echo $content_deutsch_tokened;
+            $content_deutsch = $content_deutsch_tokened;
         }
         elseif ($language === 'english' && $target === 'motivation') {
             echo $content_english_tokened;
+            $content_english = $content_english_tokened;
         } else {
             if ($language === 'deutsch') {
                 echo $content_deutsch;
@@ -293,11 +304,11 @@ $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));
     <?php
 
     if ($language === 'deutsch') {
-        echo "<div id='footer'>&copy; Sascha Rie&szlig; root-art | Host: <a href='//" . $host . "' class='inpagelink'>$host</a> | Seite aktualisiert: UTC+1, Deutschland: " . $lastchanged_de . " | <a href='/ra_admin' class='inpagelink' target='_blank'>Login</a></div>";
+        echo "<div id='footer'>&copy; Sascha Rie&szlig; root-art | Host: <a href='//" . $host . "' class='inpagelink'>$host</a> | Seite aktualisiert: UTC+1, Deutschland: " . $lastchanged_de . " | <a href='/ra_admin' class='inpagelink' target='_blank'>Login</a> | <a href='//sandbox.root-art.com' class='inpagelink' target='_blank'>Sandbox</a></div>";
 
     }
     else {
-        echo "<div id='footer'>&copy; Sascha Riess root-art | Host: <a <a href='//" . $host . "' class='inpagelink'>$host</a> | Page updated: UTC+1/Germany: " . $lastchanged_en . " | <a href='/ra_admin' class='inpagelink' target='_blank'>Login</a></div>";
+        echo "<div id='footer'>&copy; Sascha Riess root-art | Host: <a <a href='//" . $host . "' class='inpagelink'>$host</a> | Page updated: UTC+1/Germany: " . $lastchanged_en . " | <a href='/ra_admin' class='inpagelink' target='_blank'>Login</a> | <a href='//sandbox.root-art.com' class='inpagelink' target='_blank'>Sandbox</a></div>";
     }
     ?>
     
