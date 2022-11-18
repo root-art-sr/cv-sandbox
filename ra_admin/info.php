@@ -35,4 +35,3 @@ echo "
 </body>
 </html>
 ";
-?>
