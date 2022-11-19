@@ -1,3 +1,4 @@
+.gitignore
 nbproject
 ra_admin/mysql/connection.php
 ra_data/_thumbs/Images/sascha-riess-01.png
