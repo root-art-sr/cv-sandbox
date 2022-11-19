@@ -198,7 +198,7 @@ if  (!empty($lastchanged_tokened) &&
 
         for ($i = 0; $i < $rowslinks; $i++) {
             
-            if ($token != '9a7ed6771e4cc30ac79c7f93b180fda7' && $token != '4f39b4cf3f06a4536108c6e30eadbddf') { // Nicht TASys
+            if ($token != '9a7ed6771e4cc30ac79c7f93b180fda7' && $token != '4f39b4cf3f06a4536108c6e30eadbddf') { // Not individualized
             
                 if ($canonical_deutsch[$i] != 'anleitung' && $canonical_english[$i] != 'manual') { // No manual
 
@@ -218,7 +218,7 @@ if  (!empty($lastchanged_tokened) &&
 
                 }
             
-            } else {
+            } else { // Show individualized navigations
                 
                 if ($language == 'deutsch') {
                 ?>
