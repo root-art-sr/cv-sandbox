@@ -1,6 +1,4 @@
- .gitignore
 nbproject
-ra_admin/mysql/connection.php
 ra_data/_thumbs/Images/sascha-riess-01.png
 ra_data/_thumbs/Images/sascha-sig.png
 ra_data/basket/sr-ihk-zulassung-fiae.pdf
