@@ -1,4 +1,4 @@
 # cv-sandbox
 CV Sandbox
 
-Create your very individial CV
+Create your very individual CV
