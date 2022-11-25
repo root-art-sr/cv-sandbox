@@ -11,8 +11,6 @@ $page_deutsch = '';
 $page_english = '';
 $lastchanged = '';
 $token = '';
-$canonical_deutsch[] = '';
-$canonical_english[] = '';
 
 /*
  * Get all pages structure into an array
