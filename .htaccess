@@ -1,22 +1,10 @@
 RewriteEngine on
 Options +FollowSymLinks
-# root-art_cms start
-# RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^([a-zA-Z0-9-._]+)\.html$ index.php?page=$1 [L]
 RewriteRule ^([a-zA-Z0-9-._]+)\/([a-z]+)\/([a-zA-Z0-9]+)$ index.php?page=$1&language=$2&token=$3 [L]
-# Rewrite domain to www
-#RewriteCond %{HTTP_HOST} !^www\.domain\.tld$ [NC]
-#RewriteRule ^(.*) http://www.domain.tld/$1 [R=301]
-# root-art_cms end
 AddHandler application/x-httpd-php .html .htm. css. js
 ########## Begin - Rewrite rules to block out some common exploits
-## If you experience problems on your site block out the operations listed below
-## This attempts to block the most common type of exploit `attempts` to Joomla!
-#
-# Block out any script trying to set a mosConfig value through the URL
-RewriteCond %{QUERY_STRING} mosConfig_[a-zA-Z_]{1,21}(=|\%3D) [OR]
 # Block out any script trying to base64_encode crap to send via URL
 RewriteCond %{QUERY_STRING} base64_encode.*\(.*\) [OR]
 # Block out any script that includes a <script> tag in URL
