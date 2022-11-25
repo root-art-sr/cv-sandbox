@@ -132,7 +132,7 @@ $target_title = ucwords($target);
  * 
  */
 if (in_array($target, $canonical_deutsch)) {
-    $p = -1;
+    $p = 0;
     unset($cur);
     
     foreach ($canonical_deutsch as $cp_deutsch) {
@@ -147,7 +147,7 @@ if (in_array($target, $canonical_deutsch)) {
 }
 
 if (in_array($target, $canonical_english)) {
-    $p = -1;
+    $p = 0;
     unset($cur);
     
     foreach ($canonical_english as $cp_english) {
