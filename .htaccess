@@ -15,5 +15,4 @@ RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
 RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
 # Send all blocked request to homepage with 403 Forbidden error!
 RewriteRule ^(.*)$ index.php [F,L]
-#
 ########## End - Rewrite rules to block out some common exploits

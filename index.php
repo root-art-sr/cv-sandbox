@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 require_once 'ra_admin/mysql/connection.php';
 
 /*
- * Include main variables and database content
+ * Include main variables
  * 
  */
 include 'includes/variables.php';
