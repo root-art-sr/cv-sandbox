@@ -172,4 +172,5 @@ if  (!empty($lastchanged_tokened) &&
     $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged_tokened));
 } else {
     $lastchanged_en = date("m/d/Y h:i:s A",strtotime($lastchanged));
-    $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));}
+    $lastchanged_de = date("d.m.Y H:i:s",strtotime($lastchanged));
+}
