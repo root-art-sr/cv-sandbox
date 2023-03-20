@@ -5,7 +5,7 @@
  * 
  */
 
-$connection = new mysqli("localhost", "user", "password", "cv_sandbox") or die ("Connection failed");
+$connection = new mysqli("85.25.134.8", "sari_2", "353izXMandyLissa", "cv_sandbox") or die ("Connection failed");
 if ($connection -> connect_errno) {
     echo "Failed to connect to MySQL: " . $connection -> connect_error;
     exit();

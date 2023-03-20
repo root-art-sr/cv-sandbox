@@ -35,7 +35,7 @@ include 'includes/variables.php';
 <link rel="shortcut icon" href="/favicon.png" type="image/png" />
 <link href="//fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet" type="text/css" />
 <link rel="canonical" href="//<?= $host ?>/<?= $target ?>/<?= $language ?>/<?= $token ?>" />
-<link rel="stylesheet/less" type="text/css" href="/less/main.less" />
+<link rel="stylesheet/less" type="text/css" href="/local_less/main.less" />
 <script src="/scripts/less.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
