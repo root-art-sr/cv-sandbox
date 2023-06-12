@@ -4,7 +4,7 @@
     <title>PDF DOM Reading: sascha_riess_cv_<?= $pdfname ?>.pdf</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-<!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
 <link rel="stylesheet/less" type="text/css" href="/less/main.less" />
 <script src="/scripts/less.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
 <script>
 let element = document.getElementById('canvas_div_pdf');
 let opt = {
-    margin:       0.610,
+    margin:       0.860,
     filename:     'sascha_riess_cv_<?= $pdfname ?>.pdf',
     image:        { type: 'jpeg', quality: 1 },
     html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true },
