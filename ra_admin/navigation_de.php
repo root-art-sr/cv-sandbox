@@ -89,49 +89,49 @@ foreach ($result as $r) {
 }
 $rows = mysqli_num_rows($result);
 // Start HTML
-echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">
+echo "<!DOCTYPE html>
 <html>
-<head>
-<title>root-art_cms: navigation</title>
-<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">
-<link rel=\"stylesheet\" type=\"text/css\" href=\"css/ra_cms.css\">
-<script type='text/javascript' src='ckeditor/ckeditor.js'></script>
-</head>
-<body>";
-// Started body
-// Main container
-# CKEditor
-echo "
-<div id='earth'>
+    <head>
+        <title>root-art_cms: navigation</title>
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/ra_cms.css\">
+        <script type='text/javascript' src='ckeditor/ckeditor.js'></script>
+    </head>
+    <body>";
+        // Started body
+        // Main container
+        # CKEditor
+        echo "
+        <div id='earth'>
 
-    <!-- img src='../ra_data/images/ra_cms.png' alt='root-art_cms' width='120' height='100'><br -->
-    <img src='../ra_data/images/tasys_logo.png' alt='root-art_cms' width='181' height='100'><br>
-    
-    <img src='/ra_data/images/Flag_of_the_United_Kingdom.svg' alt='Language: English' class='flags' /> <a href='./'>Administration</a> | <a href='navigation.php'>Navigation</a> | <a href='pages.php'>Pages</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
-    <hr>
-    <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' /> <a href='./'>Administration</A> | <a href='navigation_de.php'>Navigation</a> | <a href='pages_de.php'>Pages</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
-    <hr>
-    <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' /><br />
-    ID | Name | Canonical | Dynamic";
-    // Show all that exist
-    for ($i = 0; $i < $rows; $i++) {
-    echo "
-    <form action='navigation_de.php' method='POST'><input type='hidden' name='id' value='$navi_id[$i]'>$navi_id[$i] <input type='text' name='navi2' value='$page_deutsch[$i]'> $page_deutsch[$i] | $canonical_deutsch[$i] | $target_deutsch[$i] <input type='submit' value='&Auml;ndern'></form>
-    <form action='navigation_de.php' method='POST'><input type='hidden' value='$navi_id[$i]' name='id'><input type='hidden' name='navi3'><INPUT type='submit' value='L&ouml;schen'></form>
-    <br>";
-    }
-    echo "<br>Navigationen: $rows<br>";
+            <!-- img src='../ra_data/images/ra_cms.png' alt='root-art_cms' width='120' height='100'><br -->
+            <img src='../ra_data/images/tasys_logo.png' alt='root-art_cms' width='181' height='100'><br>
 
-    echo "
-    <p>Neue Navigation &amp; Page:</p>
-    <form action='navigation_de.php' method='POST'>
-        <input type='text' id='navi1' name='navi1'>
-        <input type='submit' value='Save'>
-    </form>
-    <span style='color:#ff8c00; font-weight: bold;'>Multilinguale Navigationen zu &uuml;bersetzen!</span>
-    <hr>
-    root-art_cms &copy " . date('Y') . "
-</div>
-</body>
+            <img src='/ra_data/images/Flag_of_the_United_Kingdom.svg' alt='Language: English' class='flags' /> <a href='./'>Administration</a> | <a href='navigation.php'>Navigation</a> | <a href='pages.php'>Pages</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
+            <hr>
+            <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' /> <a href='./'>Administration</A> | <a href='navigation_de.php'>Navigation</a> | <a href='pages_de.php'>Pages</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
+            <hr>
+            <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' /><br />
+            ID | Name | Canonical | Dynamic";
+            // Show all that exist
+            for ($i = 0; $i < $rows; $i++) {
+            echo "
+            <form action='navigation_de.php' method='POST'><input type='hidden' name='id' value='$navi_id[$i]'>$navi_id[$i] <input type='text' name='navi2' value='$page_deutsch[$i]'> $page_deutsch[$i] | $canonical_deutsch[$i] | $target_deutsch[$i] <input type='submit' value='&Auml;ndern'></form>
+            <form action='navigation_de.php' method='POST'><input type='hidden' value='$navi_id[$i]' name='id'><input type='hidden' name='navi3'><INPUT type='submit' value='L&ouml;schen'></form>
+            <br>";
+            }
+            echo "<br>Navigationen: $rows<br>";
+
+            echo "
+            <p>Neue Navigation &amp; Page:</p>
+            <form action='navigation_de.php' method='POST'>
+                <input type='text' id='navi1' name='navi1'>
+                <input type='submit' value='Save'>
+            </form>
+            <span style='color:#ff8c00; font-weight: bold;'>Multilinguale Navigationen zu &uuml;bersetzen!</span>
+            <hr>
+            root-art_cms &copy " . date('Y') . "
+        </div>
+    </body>
 </html>
 ";

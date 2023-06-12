@@ -40,78 +40,76 @@ if (isset($_GET['editpage'])) {
     $editpage_deutsch = '';
 }
 // Start HTML
-echo "
-    <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">
-    <html>
+echo "<!DOCTYPE html>
+<html>
     <head>
-    <title>root-art_cms: pages</title>
-    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/ra_cms.css\">
-    <script type='text/javascript' src='ckeditor/ckeditor.js'></script>
+        <title>root-art_cms: pages</title>
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/ra_cms.css\">
+        <script type='text/javascript' src='ckeditor/ckeditor.js'></script>
     </head>
-    <body>
-";
-// Started body
-// Main container
-# CKEditor
-echo "
-<div id='earth'>
+    <body>";
+        // Started body
+        // Main container
+        # CKEditor
+        echo "
+        <div id='earth'>
 
-    <!-- img src='../ra_data/images/ra_cms.png' alt='root-art_cms' width='120' height='100'><br -->
-    <img src='../ra_data/images/tasys_logo.png' alt='root-art_cms' width='181' height='100'><br>
-    
-    <img src='/ra_data/images/Flag_of_the_United_Kingdom.svg' alt='Language: English' class='flags' /> <a href='./'>Administration</a> | <a href='navigation.php'>Navigation</a> | <a href='pages.php'>Pages</a> &#x25BA; <a href='motivations.php'>Motivations</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
-    <hr>
-    <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' /> <a href='./'>Administration</A> | <a href='navigation_de.php'>Navigation</a> | <a href='pages_de.php'>Pages</a> &#x25BA; <a href='motivations_de.php'>Motivations</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
-    <hr>
-    <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' />&nbsp;
-";
-// Show all that exist
-for ($i = 0; $i < $rows; $i++) {
-echo "&raquo;<A href='pages_de.php?editpage=$page_id[$i]'>$page_deutsch[$i]</A>&laquo;&nbsp;&nbsp;";
-}
-echo "<hr>";
+            <!-- img src='../ra_data/images/ra_cms.png' alt='root-art_cms' width='120' height='100'><br -->
+            <img src='../ra_data/images/tasys_logo.png' alt='root-art_cms' width='181' height='100'><br>
 
-if (!empty($editpage_id)) {
+            <img src='/ra_data/images/Flag_of_the_United_Kingdom.svg' alt='Language: English' class='flags' /> <a href='./'>Administration</a> | <a href='navigation.php'>Navigation</a> | <a href='pages.php'>Pages</a> &#x25BA; <a href='motivations.php'>Motivations</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
+            <hr>
+            <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' /> <a href='./'>Administration</A> | <a href='navigation_de.php'>Navigation</a> | <a href='pages_de.php'>Pages</a> &#x25BA; <a href='motivations_de.php'>Motivations</a> | <a href='files.php'>Files</a> | <a href='css.php'>CSS</a> | <a href='info.php'>Info</a>
+            <hr>
+            <img src='/ra_data/images/Flag_of_Germany.svg' alt='Language: Deutsch' class='flags' />&nbsp;
+        ";
+        // Show all that exist
+        for ($i = 0; $i < $rows; $i++) {
+        echo "&raquo;<A href='pages_de.php?editpage=$page_id[$i]'>$page_deutsch[$i]</A>&laquo;&nbsp;&nbsp;";
+        }
+        echo "<hr>";
 
-echo "
-    <form method='POST' action='pages_de.php?editpage=$editpage_id'>
-        <p>
-            Editor: $editpage_deutsch<br />
-            <textarea id='editor1' name='editor1'>$content</textarea>
-            <script type='text/javascript'>
-                CKEDITOR.replace( 'editor1',
-                {
-                language : 'de',
-                toolbar : 'Full',
-                uiColor : '#CCCCCC',
-                width : '800',
-                filebrowserBrowseUrl : '/ra_admin/ckfinder/ckfinder.html',
-                filebrowserImageBrowseUrl : '/ra_admin/ckfinder/ckfinder.html?Type=Images',
-                filebrowserFlashBrowseUrl : '/ra_admin/ckfinder/ckfinder.html?Type=Flash',
-                filebrowserUploadUrl : '/ra_admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-                filebrowserImageUploadUrl : '/ra_admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-                filebrowserFlashUploadUrl : '/ra_admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
-                });
-            </script>
-        </p>
-        <p>
-        <INPUT type='hidden' value='$editpage_id' name='editpage_id'>
-        <input type='submit' value='Speichern' />
-        </p>
-    </form>
-";
-} else {
-?>
-    <p>Eine zu bearbeitende Page w&auml;hlen.</p>
-    <p>Neue Pages sind in der <a href="/ra_admin/navigation_de.php">Navigation</a> zu erstellen.</p>
-<?php
-}
-echo "
-    <hr>
-    root-art_cms &copy; " . date('Y') . "
-</div>
-</body>
+        if (!empty($editpage_id)) {
+
+        echo "
+            <form method='POST' action='pages_de.php?editpage=$editpage_id'>
+                <p>
+                    Editor: $editpage_deutsch<br />
+                    <textarea id='editor1' name='editor1'>$content</textarea>
+                    <script type='text/javascript'>
+                        CKEDITOR.replace( 'editor1',
+                        {
+                        language : 'de',
+                        toolbar : 'Full',
+                        uiColor : '#CCCCCC',
+                        width : '800',
+                        filebrowserBrowseUrl : '/ra_admin/ckfinder/ckfinder.html',
+                        filebrowserImageBrowseUrl : '/ra_admin/ckfinder/ckfinder.html?Type=Images',
+                        filebrowserFlashBrowseUrl : '/ra_admin/ckfinder/ckfinder.html?Type=Flash',
+                        filebrowserUploadUrl : '/ra_admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                        filebrowserImageUploadUrl : '/ra_admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                        filebrowserFlashUploadUrl : '/ra_admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+                        });
+                    </script>
+                </p>
+                <p>
+                <INPUT type='hidden' value='$editpage_id' name='editpage_id'>
+                <input type='submit' value='Speichern' />
+                </p>
+            </form>
+        ";
+        } else {
+        ?>
+            <p>Eine zu bearbeitende Page w&auml;hlen.</p>
+            <p>Neue Pages sind in der <a href="/ra_admin/navigation_de.php">Navigation</a> zu erstellen.</p>
+        <?php
+        }
+        echo "
+            <hr>
+            root-art_cms &copy; " . date('Y') . "
+        </div>
+    </body>
 </html>
 ";
 ?>
