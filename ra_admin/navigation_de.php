@@ -24,9 +24,10 @@ mysqli_query($connection, "INSERT INTO structure "
         . "SET "
         . "page_deutsch = '$createstructure', "
         . "target_deutsch = 'index.php?page=$createtarget', "
+        . "canonical_deutsch = '$createtarget$createtarget', "
         . "page_english = '$createstructure', "
         . "target_english = 'index.php?page=$createtarget', "
-        . "canonical_deutsch = '$createtarget'");
+        . "canonical_english = '$createtarget'");
 // Write structure_id into content
 $res = mysqli_query($connection, "SELECT MAX(ID) AS LAST_ID FROM structure");
 $lastid = mysqli_fetch_array($res);
