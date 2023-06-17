@@ -24,7 +24,6 @@ mysqli_query($connection, "INSERT INTO structure "
         . "SET "
         . "page_deutsch = '$createstructure', "
         . "target_deutsch = 'index.php?page=$createtarget', "
-        . "canonical_deutsch = '$createtarget$createtarget', "
         . "page_english = '$createstructure', "
         . "target_english = 'index.php?page=$createtarget', "
         . "canonical_deutsch = '$createtarget'");
